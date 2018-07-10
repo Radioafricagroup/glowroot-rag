@@ -99,7 +99,7 @@
       "captureKind": "transaction",
       "alreadyInTransactionBehavior": "capture-trace-entry",
       "transactionType": "RabbitMQ",
-      "transactionNameTemplate": "RMQ basicConsume {{0}} {{1}} {{2}}",
+      "transactionNameTemplate": "RMQ basicConsume Queue:{{0}} Consumer:{{3.class.name}}",
       "traceEntryMessageTemplate": "RMQ basicConsume  {{_}}",
       "traceEntryCaptureSelfNested": true,
       "timerName": "RMQ basicConsume",
@@ -115,7 +115,7 @@
       "captureKind": "trace-entry",
       "alreadyInTransactionBehavior": null,
       "transactionType": "RabbitMQ",
-      "transactionNameTemplate": "RMQ basicConsume {{0}} {{1}} {{2}}",
+      "transactionNameTemplate": "RMQ basicConsume Queue:{{0}} Consumer:{{3.class.name}}",
       "traceEntryMessageTemplate": "RMQ basicConsume  {{_}}",
       "traceEntryCaptureSelfNested": true,
       "timerName": "RMQ basicConsume",
@@ -131,7 +131,7 @@
       "captureKind": "timer",
       "alreadyInTransactionBehavior": null,
       "transactionType": "RabbitMQ",
-      "transactionNameTemplate": "RMQ basicConsume {{0}} {{1}} {{2}}",
+      "transactionNameTemplate": "RMQ basicConsume Queue:{{0}} Consumer:{{3.class.name}}",
       "timerName": "RMQ basicConsume",
       "className": "com.rabbitmq.client.Channel",
       "methodName": "basicConsume",
@@ -141,22 +141,49 @@
       "transactionSlowThresholdMillis": 5
     },
     {
-        "className": "com.rabbitmq.client.Channel",
-        "methodName": "basicPublish",
-        "methodParameterTypes": [
-          "java.lang.String",
-          "java.lang.String",
-          "com.rabbitmq.client.AMQP$BasicProperties",
-          "byte[]"
-        ],
-        "captureKind": "transaction",
-        "transactionType": "SimpleRabbitMQ",
-        "transactionNameTemplate": "RabbitMQ basicPublish",
-        "transactionSlowThresholdMillis": 0,
-        "alreadyInTransactionBehavior": "capture-trace-entry",
-        "traceEntryMessageTemplate": "{{3}}",
-        "traceEntryStackThresholdMillis": 0,
-        "timerName": "RMQ Simple basicPublish"
-      }
+      "captureKind": "transaction",
+      "alreadyInTransactionBehavior": "capture-trace-entry",
+      "transactionType": "RabbitMQ",
+      "transactionNameTemplate": "RMQ basicPublish Queue:{{0}} Message:{{3}}",
+      "traceEntryMessageTemplate": "RMQ basicPublish {{this}}",
+      "traceEntryCaptureSelfNested": true,
+      "timerName": "RMQ basicPublish",
+      "className": "com.rabbitmq.client.Channel",
+      "methodName": "basicPublish",
+      "methodParameterTypes": [
+        ".."
+      ],
+      "traceEntryStackThresholdMillis": 0,
+      "transactionSlowThresholdMillis": 5
+    },
+    {
+      "captureKind": "trace-entry",
+      "alreadyInTransactionBehavior": null,
+      "transactionType": "RabbitMQ",
+      "transactionNameTemplate": "RMQ basicPublish Queue:{{0}} Message:{{3}}",
+      "traceEntryMessageTemplate": "RMQ basicPublish {{this}}",
+      "traceEntryCaptureSelfNested": true,
+      "timerName": "RMQ basicPublish",
+      "className": "com.rabbitmq.client.Channel",
+      "methodName": "basicPublish",
+      "methodParameterTypes": [
+        ".."
+      ],
+      "traceEntryStackThresholdMillis": 0,
+      "transactionSlowThresholdMillis": 5
+    },
+    {
+      "captureKind": "timer",
+      "alreadyInTransactionBehavior": null,
+      "transactionType": "RabbitMQ",
+      "transactionNameTemplate": "RMQ basicPublish Queue:{{0}} Message:{{3}}",
+      "timerName": "RMQ basicPublish",
+      "className": "com.rabbitmq.client.Channel",
+      "methodName": "basicPublish",
+      "methodParameterTypes": [
+        ".."
+      ],
+      "transactionSlowThresholdMillis": 5
+    }
   ]
 }
