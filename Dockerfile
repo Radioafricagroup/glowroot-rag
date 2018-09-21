@@ -6,6 +6,7 @@ RUN unzip glowroot && rm glowroot.zip
 WORKDIR /glowroot
 RUN rm -r LICENSE NOTICE
 COPY plugins /glowroot/plugins
+COPY admin.json /glowroot/admin.json
 
 FROM alpine:3.7
 COPY --from=fetcher /glowroot /glowroot
